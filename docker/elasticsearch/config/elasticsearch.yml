@@ -1,0 +1,2 @@
+xpack.security.enabled: false #On desactive la sécu d'elatic
+network.host: 0.0.0.0 #Ecoute sur toutes les interfaces

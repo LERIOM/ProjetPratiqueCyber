@@ -31,10 +31,9 @@ services:
       
 
   ids:
-    platform: linux/amd64
     build: ./docker/ids
     container_name: ids
-    depends_on: 
+    depends_on:
       - syslog
     environment:
       - SYSLOG_HOST=syslog

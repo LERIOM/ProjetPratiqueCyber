@@ -101,4 +101,3 @@ doc_smb=$(cat <<'JSON'
 JSON
 )
 index_doc "${INDEX_PREFIX}-$(date +%Y.%m.%d)" "${doc_smb}"
-

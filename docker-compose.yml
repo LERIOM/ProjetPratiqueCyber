@@ -1,5 +1,5 @@
 
-services:
+services: 
   elasticsearch:
     build: ./docker/elasticsearch
     container_name: es
@@ -49,6 +49,7 @@ services:
     ports:
       - "2222:22" 
     environment:
+    
       - SYSLOG_HOST=syslog
       - SYSLOG_PORT=5514
 

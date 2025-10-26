@@ -23,6 +23,8 @@ portvar SSH_PORTS 22
 
 output alert_fast: stdout
 
+# Charge les définitions de classification (corrige l'erreur 'Unknown ClassType')
 include classification.config
 
+# Inclut les règles locales
 include $RULE_PATH/local.rules

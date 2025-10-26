@@ -1,14 +1,13 @@
-
 services:
   syslog:
     build: ./docker/syslog
     container_name: syslog
     depends_on: [elasticsearch]
-    ports: ["5514:5514/udp"]
     environment:
       - ES_URL=http://elasticsearch:9200
     volumes:
       - ./docker/syslog/config/syslog-ng.conf:/etc/syslog-ng/syslog-ng.conf
+      - snort-logs:/snort-logs:ro
       
   ids:
     build: ./docker/ids
@@ -16,12 +15,10 @@ services:
     network_mode: "host"
     depends_on:
       - syslog
-    environment:
-      - SYSLOG_HOST=syslog
-      - SYSLOG_PORT=5514
     volumes:
       - ./docker/ids/config/snort.conf.template:/etc/snort/snort.conf.template
       - ./docker/ids/config/local.rules:/etc/snort/rules/local.rules
+      - snort-logs:/var/log/snort
 
   elasticsearch:
     build: ./docker/elasticsearch
@@ -50,7 +47,6 @@ services:
     ports:
       - "2222:22" 
     environment:
-    
       - SYSLOG_HOST=syslog
       - SYSLOG_PORT=5514
 
@@ -59,3 +55,7 @@ services:
     container_name: ssh_bruteforce
     depends_on:
       - server
+
+volumes:
+  snort-logs:
+

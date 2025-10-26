@@ -19,9 +19,7 @@ services:
       - SYSLOG_HOST=syslog
       - SYSLOG_PORT=5514
     volumes:
-      # Monte le template pour que le script puisse le lire
       - ./docker/ids/config/snort.conf.template:/etc/snort/snort.conf.template
-      # Monte le fichier de règles EXACTEMENT là où Snort le cherche
       - ./docker/ids/config/local.rules:/etc/snort/rules/local.rules
 
   elasticsearch:

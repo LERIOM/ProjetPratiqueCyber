@@ -1,11 +1,33 @@
+services:
+  syslog:
+    build: ./docker/syslog
+    container_name: syslog
+    depends_on: [elasticsearch]
+    environment:
+      - ES_URL=http://elasticsearch:9200
+    volumes:
+      - ./docker/syslog/config/syslog-ng.conf:/etc/syslog-ng/syslog-ng.conf
+      - snort-logs:/snort-logs:ro
+      
+  ids:
+    build: ./docker/ids
+    container_name: ids
+    network_mode: "host"
+    privileged: true
+    depends_on:
+      - syslog
+    volumes:
+      - ./docker/ids/config/snort.conf.template:/etc/snort/snort.conf.template
+      - ./docker/ids/config/local.rules:/etc/snort/rules/local.rules
+      - snort-logs:/var/log/snort
 
-services: 
   elasticsearch:
     build: ./docker/elasticsearch
     container_name: es
     environment:
       - discovery.type=single-node
       - ES_JAVA_OPTS=-Xms512m -Xmx512m
+      - xpack.security.enabled=false
     ports: ["9200:9200"]
     healthcheck:
       test: ["CMD", "curl", "-fsS", "http://localhost:9200/_cluster/health"]
@@ -18,29 +40,10 @@ services:
     container_name: kib
     depends_on: [elasticsearch]
     ports: ["5601:5601"]
+    environment: 
+      - ELASTICSEARCH_HOSTS_0=http://elasticsearch:9200
+      - XPACK_SECURITY_ENABLED=false
     
-  syslog:
-    build: ./docker/syslog
-    container_name: syslog
-    depends_on: [elasticsearch]
-    ports: ["5514:5514/udp"]
-    environment:
-      - ES_URL=http://elasticsearch:9200
-    volumes:
-      - ./docker/syslog/config/syslog-ng.conf:/etc/syslog-ng/syslog-ng.conf
-      
-
-  ids:
-    build: ./docker/ids
-    container_name: ids
-    depends_on:
-      - syslog
-    environment:
-      - SYSLOG_HOST=syslog
-      - SYSLOG_PORT=5514
-    volumes:
-      - ./docker/ids/config:/etc/snort:ro
-
   server:
     build: ./docker/server
     container_name: server
@@ -49,7 +52,6 @@ services:
     ports:
       - "2222:22" 
     environment:
-    
       - SYSLOG_HOST=syslog
       - SYSLOG_PORT=5514
 
@@ -58,3 +60,6 @@ services:
     container_name: ssh_bruteforce
     depends_on:
       - server
+
+volumes:
+  snort-logs:

@@ -1,16 +1,10 @@
-############################################################
-# Snort Configuration Template (adapté par Antony Huynh)
-############################################################
-
 ipvar HOME_NET any
 ipvar EXTERNAL_NET any
 
-# === Dossiers ===
-var RULE_PATH /etc/snort/rules
+var RULE_PATH rules
 var SO_RULE_PATH /etc/snort/so_rules
 var PREPROC_RULE_PATH /etc/snort/preproc_rules
 
-# === Configuration de base ===
 config disable_decode_alerts
 config disable_tcpopt_experimental_alerts
 config disable_tcpopt_obsolete_alerts
@@ -18,21 +12,19 @@ config disable_tcpopt_ttcp_alerts
 config disable_tcpopt_alerts
 config checksum_mode: none
 
-# === Préprocesseurs ===
 preprocessor stream5_global: track_tcp yes, track_udp yes
 preprocessor stream5_tcp: policy linux, detect_anomalies, require_3whs 180
 preprocessor http_inspect: global iis_unicode_map unicode.map 1252
 preprocessor http_inspect_server: server default profile all ports { 80 8080 8000 } oversize_dir_length 500
-preprocessor dns: ports { 53 }
 
-# === Ports ===
 portvar HTTP_PORTS [80,8080,8000]
 portvar SHELLCODE_PORTS !80
 portvar SSH_PORTS 22
 
-# === Sortie ===
-output alert_syslog: LOG_LOCAL0 LOG_ALERT
 output alert_fast: stdout
 
-# === Règles ===
+# Charge les définitions de classification (corrige l'erreur 'Unknown ClassType')
+include classification.config
+
+# Inclut les règles locales
 include $RULE_PATH/local.rules

@@ -1,14 +1,5 @@
-# Enables you to specify a file where Kibana stores log output.
-logging:
-  appenders:
-    file:
-      type: file
-      fileName: /var/log/kibana/kibana.log
-      layout:
-        type: json
-  root:
-    appenders:
-      - default
-      - file
-# Specifies the path where Kibana creates the process ID file.
-pid.file: /run/kibana/kibana.pid
+# Configurer l'hôte d'Elasticsearch
+elasticsearch.hosts: ["http://elasticsearch:9200"]
+
+# Désactiver la sécurité (pour ne pas demander de jeton)
+xpack.security.enabled: false

@@ -7,7 +7,7 @@ services:
       - ES_URL=http://elasticsearch:9200
     volumes:
       - ./docker/syslog/config/syslog-ng.conf:/etc/syslog-ng/syslog-ng.conf
-      - snort-logs:/snort-logs:ro
+      - snort-logs:/snort-logs        
       
   ids:
     build: ./docker/ids

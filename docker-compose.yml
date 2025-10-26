@@ -13,6 +13,7 @@ services:
   ids:
     build: ./docker/ids
     container_name: ids
+    network_mode: "host"
     depends_on:
       - syslog
     environment:

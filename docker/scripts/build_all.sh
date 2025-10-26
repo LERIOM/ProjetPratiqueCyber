@@ -1,3 +1,19 @@
-#!/usr/bin/env bash
+#!/bin/bash
 set -euo pipefail
-docker compose build
+
+cd "$(dirname "$0")/../.."
+
+
+services=(
+  elasticsearch
+  kibana
+  syslog
+  ids
+  server
+)
+
+echo " Build des services: ${services[*]}"
+
+docker compose build "${services[@]}"
+
+echo "Build terminé."

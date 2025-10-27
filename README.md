@@ -4,6 +4,48 @@ Ce projet déploie un système complet de gestion des informations et des évén
 
 L'ensemble de l'environnement est conteneurisé, ce qui le rend facile à déployer, à gérer et à faire évoluer.
 
+## 📁 Structure du Projet
+
+Voici l'arborescence des fichiers et dossiers du projet.
+
+```
+PROJETPRATIQUECYBER/
+├── docker/
+│   ├── elasticsearch/
+│   |   ├── config/
+│   |   │   └── elasticsearch.yml
+│   |   └── Dockerfile
+│   ├── ids/
+│   │   ├── config/
+│   │   │   ├── local.rules
+│   │   │   └── snort.conf.template
+│   │   ├── configure_and_run.sh
+│   │   └── Dockerfile
+│   ├── kibana/
+│   │   ├── config/
+|   |   |   └── kibana.yml
+│   │   └── Dockerfile
+│   ├── server/
+│   |   ├── config/
+|   |   |   └── syslog-ng-client.conf
+│   |   └── Dockerfile
+│   ├── ssh_brutforce/
+│   |   ├── ssh_bruteforce.sh
+│   |   └── Dockerfile
+│   └── syslog/
+│       ├── config/
+│       │   └── syslog-ng.conf
+│       ├── Dockerfile
+│       └── start.sh
+├── docs/
+│   └── images/
+│       ├── diagram.png
+│       ├── step 1.png
+│       ├── ... (autres images)
+├── docker-compose.yml
+└── README.md
+```
+
 
 ## 🏛️ Architecture
 
@@ -107,8 +149,6 @@ Vous allez indiquer à Kibana où trouver les données que `syslog-ng` envoie à
 ## 📈 Analyse et Conclusion
 
 Ce projet met en place une base solide pour un système de détection d'anomalies. Cependant, il présente plusieurs limites et axes d'amélioration.
-
----
 
 ### Limites du Projet
 

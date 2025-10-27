@@ -4,7 +4,6 @@ Ce projet déploie un système complet de gestion des informations et des évén
 
 L'ensemble de l'environnement est conteneurisé, ce qui le rend facile à déployer, à gérer et à faire évoluer.
 
----
 
 ## 🏛️ Architecture
 
@@ -15,9 +14,6 @@ Ce projet utilise une configuration Docker multi-conteneurs orchestrée avec `do
 * **Elasticsearch (`elasticsearch`)** : Un puissant moteur de recherche et d'analyse qui stocke et indexe les logs envoyés par syslog-ng.
 * **Kibana (`kibana`)** : La couche de visualisation de la pile ELK. Elle fournit une interface web pour explorer, rechercher et visualiser les données de logs stockées dans Elasticsearch.
 
-
-
----
 
 ## 📋 Prérequis
 
@@ -47,8 +43,6 @@ sudo apt-get update
 # Installer Docker Engine et Docker Compose
 sudo apt-get install docker.io docker-compose -y
 ```
-
----
 
 ## 🚀 Installation et Lancement avec Docker
 

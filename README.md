@@ -1,6 +1,6 @@
 # Projet détection d'anomalies par logs avec Docker : Snort et Syslog-ng
 
-Ce projet déploie un système complet de gestion des informations et des événements de sécurité (SIEM) en utilisant Docker. Il intègre **Snort** pour la détection d'intrusions, la **pile Elastic (Elasticsearch et Kibana)** pour l'agrégation et la visualisation des logs, et **syslog-ng** comme transitaire de logs central.
+Ce projet déploie un système complet de gestion des informations et des événements de sécurité en utilisant Docker. Il intègre **Snort** pour la détection d'intrusions, la **pile Elastic (Elasticsearch et Kibana)** pour l'agrégation et la visualisation des logs, et **syslog-ng** comme transitaire de logs central.
 
 L'ensemble de l'environnement est conteneurisé, ce qui le rend facile à déployer, à gérer et à faire évoluer.
 

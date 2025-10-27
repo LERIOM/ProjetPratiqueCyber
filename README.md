@@ -104,6 +104,27 @@ Vous allez indiquer à Kibana où trouver les données que `syslog-ng` envoie à
     <br>
     <img src="./docs/images/step%207.png" alt="Step 7" title="Step 7" width="600"/>
 
+## 📈 Analyse et Conclusion
+
+Ce projet met en place une base solide pour un système de détection d'anomalies. Cependant, il présente plusieurs limites et axes d'amélioration.
+
+---
+
+### Limites du Projet
+
+1.  **Absence de Notifications Proactives** : La principale faiblesse est la nature passive du système. Un administrateur doit **avoir constamment les yeux sur le tableau de bord Kibana** pour être informé d'une attaque. Il n'y a pas d'alertes automatiques par courriel ou message, ce qui retarde la réponse à un incident.
+2.  **Manque de Priorisation des Logs** : Le système traite toutes les alertes de la même manière. Il n'existe **aucun mécanisme pour prioriser ou classifier la criticité des logs**. Cela oblige l'analyste à trier manuellement un volume potentiellement énorme de données pour identifier les menaces les plus urgentes.
+
+### Améliorations Possibles
+
+* **Intégration d'un Système d'Alerting** : Configurer le module d'alerting de Kibana ou un outil comme **ElastAlert** pour envoyer des notifications automatiques (courriel, Slack, etc.) lorsqu'une menace critique est détectée, comme demandé dans les exigences du projet.
+* **Enrichissement et Corrélation des Données** : Utiliser des outils comme Logstash pour enrichir les logs avec des informations contextuelles (géolocalisation IP, niveau de sévérité) et corréler des événements pour identifier des attaques complexes.
+* **Création de Tableaux de Bord Personnalisés** : Développer des **dashboards Kibana spécifiques** aux menaces critiques pour offrir une vue synthétique et immédiate de l'état de la sécurité, ce qui est une fonctionnalité bonus valorisée.
+
+### Perspectives (Veille Technologique)
+
+* **Orchestration et Réponse Automatisée (SOAR)** : Intégrer des plateformes SOAR pour automatiser la réponse à une alerte, par exemple en bloquant instantanément l'adresse IP de l'attaquant au niveau du pare-feu.
+
 ## ✍️ Auteurs
 
 * **Antony HUYNH** : `ahuynh@etu.uqac.ca`

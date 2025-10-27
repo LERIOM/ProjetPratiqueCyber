@@ -56,6 +56,11 @@ Ouvrez un terminal et naviguez jusqu'au répertoire racine de ce projet. C'est l
 docker-compose up --build
 ```
 
+Si jamais vous voulez stopper notre service : 
+```bash
+docker-compose down
+```
+
 ## 🛠️ Configuration de Kibana
 
 Après avoir lancé les conteneurs, configurez Kibana pour visualiser les alertes.

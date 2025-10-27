@@ -55,9 +55,9 @@ services:
       - SYSLOG_HOST=syslog
       - SYSLOG_PORT=5514
 
-  ssh_bruteforce:
-    build: ./docker/ssh_bruteforce
-    container_name: ssh_bruteforce
+  ssh_brutforce:
+    build: ./docker/ssh_brutforce
+    container_name: ssh_brutforce
     depends_on:
       - server
 

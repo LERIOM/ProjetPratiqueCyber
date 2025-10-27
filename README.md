@@ -68,7 +68,6 @@ Après avoir lancé les conteneurs, configurez Kibana pour visualiser les alerte
 
 Patientez une à deux minutes que les services démarrent, puis ouvrez votre navigateur web et naviguez vers **`http://localhost:5601`**.
 
----
 
 ### 2. Créer une Vue de Données (Data View)
 

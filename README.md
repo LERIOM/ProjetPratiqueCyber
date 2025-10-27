@@ -14,6 +14,8 @@ Ce projet utilise une configuration Docker multi-conteneurs orchestrée avec `do
 * **Elasticsearch (`elasticsearch`)** : Un puissant moteur de recherche et d'analyse qui stocke et indexe les logs envoyés par syslog-ng.
 * **Kibana (`kibana`)** : La couche de visualisation de la pile ELK. Elle fournit une interface web pour explorer, rechercher et visualiser les données de logs stockées dans Elasticsearch.
 
+<br>
+    <img src="./docs/images/diagram.png" alt="Diagramme" title="Diagramme" width="600"/>
 
 ## 📋 Prérequis
 

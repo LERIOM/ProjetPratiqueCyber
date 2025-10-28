@@ -51,6 +51,7 @@ services:
       - syslog
     ports:
       - "2222:22" 
+      - "80:80"
     environment:
       - SYSLOG_HOST=syslog
       - SYSLOG_PORT=5514

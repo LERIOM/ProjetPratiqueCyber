@@ -159,6 +159,12 @@ docker ps
 
 Et il faut vérifier si 5 services ont bien démarré
 
+Pour simuler une attaque sur notre projet, il faut être à la racine du projet et exécuter la commande suivante : 
+
+```bash
+./scripts-attacks/scenario[Numéro de scénario que vous souhaitez entre 1 à 5].sh
+```
+
 ## 📈 Analyse et Conclusion
 
 Ce projet met en place une base solide pour un système de détection d'anomalies. Cependant, il présente plusieurs limites et axes d'amélioration.

@@ -44,6 +44,7 @@ PROJETPRATIQUECYBER/
 │       ├── diagram.png
 │       ├── step 1.png
 │       ├── ... (autres images)
+├── scripts-attacks/
 ├── docker-compose.yml
 └── README.md
 ```
@@ -147,6 +148,22 @@ Vous allez indiquer à Kibana où trouver les données que `syslog-ng` envoie à
 8.  Vous pouvez maintenant admirer les logs d'alertes en allant dans **Snort Alerts** si Kibana ne vous a pas déjà affiché les logs.
     <br>
     <img src="./docs/images/step%207.png" alt="Step 7" title="Step 7" width="600"/>
+
+## ⚡️ Scénarios d'attaque et exécution
+
+Les scénarios d'attaque doivent être fait uniquement quand tous les services ont bien démarré. On peut voir ça en exécutant la commande suivante :
+
+```bash
+docker ps
+```
+
+Et il faut vérifier si 5 services ont bien démarré
+
+Pour simuler une attaque sur notre projet, il faut être à la racine du projet et exécuter la commande suivante : 
+
+```bash
+./scripts-attacks/scenario[Numéro de scénario que vous souhaitez entre 1 à 5].sh
+```
 
 ## 📈 Analyse et Conclusion
 

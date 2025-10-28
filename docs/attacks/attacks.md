@@ -29,14 +29,10 @@ Le protocole SSH est un point d'accès critique pour l'administration des serveu
 
 ---
 
-### Scénario 4 : Ping Externe (Reconnaissance ICMP) 
+### Scénario 4 : Attaque par Inondation ICMP (Ping Flood) 🌊
 
 #### Justification
-
-Bien que souvent bénin, un ping provenant d'une source externe inattendue peut être le premier signe qu'un attaquant cartographie un réseau pour identifier des cibles actives.
-
-* **Objectif Pédagogique** : Ce scénario simple valide que le système de détection n'est pas limité aux protocoles applicatifs comme TCP et UDP, mais qu'il surveille également des protocoles de contrôle comme ICMP. Cela garantit une surveillance plus complète du réseau.
-* **Pertinence pour le Projet** : Il permet de créer une règle de détection simple mais efficace pour démontrer une compréhension de base des différents protocoles réseau et de leur pertinence en matière de sécurité.
+Ce scénario démontre comment un outil aussi simple que le `ping` peut être utilisé pour mener une attaque par déni de service (DDoS) efficace. L'objectif n'est pas d'exploiter une faille, mais de submerger la cible sous un volume massif de requêtes **ICMP Echo Request**. En forçant le serveur et snort à traiter et à répondre à des milliers de pings par seconde, l'attaque sature sa bande passante et épuise ses ressources CPU, le rendant inaccessible pour le trafic légitime. Intégrer ce cas est pertinent car il teste la capacité du SIEM à détecter les attaques volumétriques, l'une des formes les plus courantes de DDoS. Il valide que le système peut identifier des schémas anormaux basés sur la fréquence et le volume du trafic, même pour un protocole de diagnostic à priori inoffensif.
 
 ---
 

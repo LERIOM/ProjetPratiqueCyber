@@ -40,6 +40,10 @@ Ce scénario démontre comment un outil aussi simple que le `ping` peut être ut
 #### Description
 On va utiliser hping3. Le script va d'abord installer ce dernier puis exécuter une commande qui va aussi vite que possible, envoyer plein de pings pendant 10 secondes exactement au serveur attaqué.
 
+#### Problème 
+
+On voulait aussi faire une détection de flood ICMP (‘ping flood’) mais avec Docker Desktop, le trafic ICMP interne des conteneurs ne passe pas sur l’interface réseau sniffée par Snort (qui est en mode host), donc Snort ne voit pas ces paquets-là. Du coup on a documenté la règle mais elle ne marche pas sauf si on execute le script dans le conteneur host.
+
 ---
 
 ### Scénario 5 : Injection SQL (SQLi) 

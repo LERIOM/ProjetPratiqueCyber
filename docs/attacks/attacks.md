@@ -27,6 +27,9 @@ Le protocole SSH est un point d'accès critique pour l'administration des serveu
 * **Objectif Pédagogique** : Ce cas met en évidence l'importance de la collecte de logs provenant des systèmes hôtes (logs d'authentification) et pas seulement du trafic réseau. Il teste la capacité du système à agréger et analyser des logs d'application pour y déceler des schémas suspects.
 * **Pertinence pour le Projet** : Il répond directement à l'exigence de collecte et de gestion des logs prioritairess journaux d'authentification sont critiques pour la sécurité d'un serveur.
 
+#### Description
+Tente 10 connexions SSH avec des identifiants erronés.
+
 ---
 
 ### Scénario 4 : Attaque par Inondation ICMP (Ping Flood) 🌊
@@ -47,3 +50,6 @@ Il s'agit de l'une des attaques les plus critiques et répandues contre les appl
 
 * **Objectif Pédagogique** : Ce scénario teste la capacité de l'IDS à effectuer une inspection approfondie du contenu (Deep Packet Inspection) des requêtes HTTP. Il ne s'agit pas seulement de vérifier les adresses IP ou les ports, mais de rechercher activement des chaînes de caractères et des syntaxes SQL dangereuses (`' OR 1=1`, `UNION SELECT`) dans les données applicatives. Cela démontre une détection au niveau de la couche 7 (applicative).
 * **Pertinence pour le Projet** : L'injection SQL est une menace fondamentale et sa détection est une fonctionnalité essentielle pour tout SIEM protégeant des applications web. Intégrer ce cas prouve une compréhension approfondie des vulnérabilités applicatives et valide la capacité du système à analyser le trafic pour y trouver des *payloads* malveillants, ce qui va au-delà de la simple surveillance réseau.
+
+#### Description
+On tente de faire une requete POST à notre serveur pour faire une injection SQL

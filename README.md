@@ -38,6 +38,8 @@ PROJETPRATIQUECYBER/
 │       ├── Dockerfile
 │       └── start.sh
 ├── docs/
+|   ├──attacks/
+|   |   └──attacks.md : Justication et description de nos attaques
 │   └── images/
 │       ├── diagram.png
 │       ├── step 1.png

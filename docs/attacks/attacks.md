@@ -34,6 +34,9 @@ Le protocole SSH est un point d'accès critique pour l'administration des serveu
 #### Justification
 Ce scénario démontre comment un outil aussi simple que le `ping` peut être utilisé pour mener une attaque par déni de service (DDoS) efficace. L'objectif n'est pas d'exploiter une faille, mais de submerger la cible sous un volume massif de requêtes **ICMP Echo Request**. En forçant le serveur et snort à traiter et à répondre à des milliers de pings par seconde, l'attaque sature sa bande passante et épuise ses ressources CPU, le rendant inaccessible pour le trafic légitime. Intégrer ce cas est pertinent car il teste la capacité du SIEM à détecter les attaques volumétriques, l'une des formes les plus courantes de DDoS. Il valide que le système peut identifier des schémas anormaux basés sur la fréquence et le volume du trafic, même pour un protocole de diagnostic à priori inoffensif.
 
+#### Description
+On va utiliser hping3. Le script va d'abord installer ce dernier puis exécuter une commande qui va aussi vite que possible, envoyer plein de pings pendant 10 secondes exactement au serveur attaqué.
+
 ---
 
 ### Scénario 5 : Injection SQL (SQLi) 💉

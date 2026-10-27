@@ -34,7 +34,7 @@ docker-compose down           # stop it
 ```
 
 Then open Kibana at **http://localhost:5601**, and create a data view:
-*Stack Management → Data Views → Create data view*, with name and index pattern `snort-*` and timestamp field `@timestamp`. Step-by-step screenshots are in the [French guide](README.fr.md#️-configuration-de-kibana).
+*Stack Management → Data Views → Create data view*, with name and index pattern `snort-*` and timestamp field `@timestamp`. Step-by-step screenshots are in the [French guide](README.fr.md).
 
 ## Attack scenarios
 
